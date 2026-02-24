@@ -7,3 +7,7 @@
 @import "./swiper.css";
 
 /* Importaciones adicionales pueden ser agregadas aquí */ 
+
+[data-e2e="video-v2-Card-CardBanner"] {
+    background-color: #ffece3 !important;
+}

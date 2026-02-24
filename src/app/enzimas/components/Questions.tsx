@@ -25,10 +25,7 @@ export const Questions = () => {
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-mo-brown-base">
-                    Sí, las enzimas que utilizamos son seguras y compatibles con todo tipo
-de piel. Se aplican de manera controlada y personalizada, minimizando
-riesgos de reacciones adversas.
-
+                    Generalmente seguro cuando se aplica bajo evaluación médica profesional; ciertos factores como embarazo, trastornos de coagulación o patologías cutáneas requieren evaluación y exclusión según criterio clínico.
                     </p>
                   </AccordionContent>
                 </AccordionItem>

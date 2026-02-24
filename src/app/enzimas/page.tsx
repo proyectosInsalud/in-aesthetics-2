@@ -13,8 +13,8 @@ import { Footer } from "@/components/Footer";
 
 export const metadata:Metadata = {
   title: 'Inaesthetics | Reducción de celulitis y grasa localizada',
-  description: 'Moldea tu cuerpo sin cirugía con nuestro tratamiento de enzimas Pb Serum. Elimina grasa localizada de forma rápida y efectiva en abdomen, brazos, piernas y papada.',
-  keywords: ['reducción de celulitis', 'enzimas Pb Serum', 'grasa localizada', 'tratamiento no invasivo', 'moldear cuerpo', 'Inaesthetics', 'lipolítico', 'sin cirugía', 'reducción de papada', 'tratamiento corporal Lima'],
+  description: 'Moldea tu cuerpo sin cirugía con nuestro tratamiento de enzimas Inbiozyme. Elimina grasa localizada de forma rápida y efectiva en abdomen, brazos, piernas y papada.',
+  keywords: ['reducción de celulitis', 'enzimas Inbiozyme', 'grasa localizada', 'tratamiento no invasivo', 'moldear cuerpo', 'Inaesthetics', 'lipolítico', 'sin cirugía', 'reducción de papada', 'tratamiento corporal Lima'],
 
   // Canonical y robots
   alternates: {
@@ -32,8 +32,8 @@ export const metadata:Metadata = {
 
   // Open Graph (Facebook, LinkedIn)
   openGraph: {
-    title: 'Inaesthetics | Moldea tu cuerpo sin cirugía con enzimas Pb Serum',
-    description: 'Moldea tu cuerpo sin cirugía con nuestro tratamiento de enzimas Pb Serum. Elimina grasa localizada de forma rápida y efectiva en abdomen, brazos, piernas y papada.',
+    title: 'Inaesthetics | Moldea tu cuerpo sin cirugía con enzimas Inbiozyme',
+    description: 'Moldea tu cuerpo sin cirugía con nuestro tratamiento de enzimas Inbiozyme. Elimina grasa localizada de forma rápida y efectiva en abdomen, brazos, piernas y papada.',
     url: 'https://inaesthetics.pe/enzimas',
     siteName: 'Inaesthetics',
     images: [
@@ -41,7 +41,7 @@ export const metadata:Metadata = {
         url: '/images/reduccion/encimas-pb-serum.png',
         width: 1200,
         height: 630,
-        alt: 'Tratamiento de reducción de celulitis con enzimas Pb Serum en Inaesthetics',
+        alt: 'Tratamiento de reducción de celulitis con enzimas Inbiozyme en Inaesthetics',
       },
     ],
     locale: 'es_PE',
@@ -52,7 +52,7 @@ export const metadata:Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Inaesthetics | Moldea tu cuerpo sin cirugía',
-    description: 'Elimina grasa localizada de forma rápida y efectiva con enzimas Pb Serum. Resultados visibles desde la primera sesión.',
+    description: 'Elimina grasa localizada de forma rápida y efectiva con enzimas Inbiozyme. Los resultados pueden apreciarse de forma progresiva a lo largo del protocolo de tratamiento (según evaluación médica individual).',
     site: '@InaestheticsPE',
     images: ['/images/reduccion/encimas-pb-serum.png'],
   },

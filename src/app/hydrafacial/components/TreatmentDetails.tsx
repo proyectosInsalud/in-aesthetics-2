@@ -21,7 +21,7 @@ export const TreatmentDetails = () => {
                 data-aos="fade-left"
                 data-aos-delay="150"
                 src="/images/treatment-co2.png" 
-                alt="Láser CO2 Deka" 
+                alt="Láser CO2 DEKA" 
                 width={100} height={100} 
                 className="w-full pt-12 md:w-1/2 md:absolute mx-auto right-0 lg:-right-16 bottom-0"
                 unoptimized

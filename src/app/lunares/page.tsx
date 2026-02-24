@@ -9,6 +9,8 @@ import { Testimonials } from "./components/testimonials/Testimonials";
 import { HeaderLunares } from "./components/HeaderLunares";
 import { Hero } from "./components/Hero";
 import { Footer } from "@/components/Footer";
+import { AnchoredVideos } from "./components/AnchoredVideos";
+import { PreAssessment } from "./components/PreAssessment";
 
 export const metadata: Metadata = {
   title: 'Inaesthetics | Eliminación de lunares, verrugas y acrocordones con láser CO2',
@@ -73,7 +75,9 @@ export default function LunaresPage() {
       /> */}
       <HeaderLunares />
       <Hero />
+      <AnchoredVideos/>
       <HeroLaserTreatment />
+      <PreAssessment />
       <Benefits />
       <Testimonials /> 
       {/* <Comparator /> */}

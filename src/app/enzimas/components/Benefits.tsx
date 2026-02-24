@@ -19,11 +19,13 @@ export const Benefits = () => {
               height={32}
               className="w-14 pb-8"
             />
-            <div className="flex flex-col text-mo-brown-base">
+           <div className="flex flex-col text-mo-brown-base">
               <p className="font-semibold text-lg">
-                Elimina grasa de forma efectiva y segura
+                Apoya la reducción de adiposidad localizada
               </p>
-              <p>con enzimas lipolíticas</p>
+              <p>
+                mediante enzimas colabora con lipólisis y mejora de microcirculación dependiendo de cada caso clínico evaluado.
+              </p>
             </div>
           </article>
         </div>
@@ -65,11 +67,13 @@ export const Benefits = () => {
               height={32}
               className="w-14 pb-8"
             />
-            <div className="flex flex-col text-mo-brown-base">
+           <div className="flex flex-col text-mo-brown-base">
               <p className="font-semibold text-lg">
-                Moldea tu cuerpo de forma natural
+                Procedimiento personalizado
               </p>
-              <p>sin efectos secundarios.</p>
+              <p>
+                con bajo riesgo de efectos adversos cuando se realiza tras evaluación clínica completa y bajo supervisión profesional.
+              </p>
             </div>
           </article>
         </div>

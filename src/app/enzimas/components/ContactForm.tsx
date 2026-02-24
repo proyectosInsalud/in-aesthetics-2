@@ -57,7 +57,7 @@ export const ContactForm = ({
                   <Input 
                   className="w-full py-6 border-mo-brown-base placeholder:text-mo-brown-base"
                     {...field}
-                    placeholder="Nombres y Apellidos"
+                    placeholder="Nombres"
                   />
                 </FormControl>
                 <FormMessage />

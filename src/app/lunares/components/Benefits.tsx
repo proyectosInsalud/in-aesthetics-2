@@ -1,173 +1,116 @@
-'use client';
+  'use client';
 
-import Image from "next/image"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+  import Image from "next/image";
+  import { Swiper, SwiperSlide } from "swiper/react";
+  import { Autoplay } from "swiper/modules";
+  import "swiper/css";
 
-export const Benefits = () => {
-  return (
-    <section className="h-[400px] md:h-screen relative my-16 px-4">
-      <div className="container mx-auto max-w-[1200px] h-full relative ">
-        {/* Círculo central con título */}
-        <div className="h-full">  
-          <div className="absolute md:top-1/2 left-1/2 -translate-x-1/2 md:-translate-y-1/2">
-            <div className="bg-in-pink py-44 md:w-[200px] w-[150px] rounded-full relative">
-              <h2 className="text-in-title-base absolute top-16 md:top-1/2 left-1/2 -translate-x-1/2 md:-translate-y-1/2 text-center text-4xl md:text-5xl font-in-playfair font-medium">
-                Beneficios y <br /> Características
+  type Benefit = {
+    src: string;
+    alt: string;
+    text: string;
+    focalY?: number; // 0..100
+  };
+
+  const benefits: Benefit[] = [
+    { src: "/images/lunares/new_1.png", alt: "Minimiza el riesgo de cicatrices visibles", text: "Minimiza el riesgo de cicatrices visibles", focalY: 50 },
+    { src: "/images/lunares/2.png", alt: "Eliminación definitiva", text: "Eliminación definitiva", focalY: 35 },
+    { src: "/images/lunares/3.png", alt: "Procedimiento seguro y preciso", text: "Procedimiento seguro y preciso", focalY: 50 },
+    { src: "/images/lunares/resultados-inmediatos.png", alt: "Resultados inmediatos", text: "Resultados inmediatos", focalY: 18 },
+  ];
+
+  export const Benefits = () => {
+    return (
+      <section className="bg-white py-12 md:py-16 px-4">
+        <div className="container mx-auto max-w-6xl flex flex-col items-center gap-10 md:gap-12">
+          {/* Versión móvil: título + carrusel */}
+          <div className="md:hidden w-full flex flex-col items-center gap-6">
+            <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center text-center rounded-full bg-in-pink w-48 h-48 shadow-md px-6">
+                <h2 className="text-center text-3xl font-in-playfair text-[#2c2c2c] leading-tight">
+                Beneficios y
+                <br />
+                Características
               </h2>
-            </div>
-            
-          </div>
-        <div className="absolute top-4/12 left-1/2 -translate-x-1/2 md:-translate-y-4/12 w-full max-w-[1200px] mx-auto px-1 md:hidden">
-          <Swiper
-          modules={[Autoplay]}
-          spaceBetween={20}
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          loop={true}
-          speed={3000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          className="my-8"
-        >
-          <SwiperSlide className="!w-[250px]">
-            <div className="flex flex-col items-center h-full">
-              <div className="w-[220px] h-[220px] overflow-hidden rounded-lg">
-                <Image 
-                  src="/images/lunares/sin-cicatrices.png" 
-                  alt="Sin cicatrices ni dolor" 
-                  width={220} 
-                  height={220} 
-                  className="object-cover w-full h-full" 
-                />
               </div>
-              <p className="text-center w-full text-[#C5641A] font-medium mt-3">Sin cicatrices ni dolor</p>
             </div>
-          </SwiperSlide>
-          <SwiperSlide className="!w-[250px]">
-            <div className="flex flex-col items-center h-full">
-              <div className="w-[220px] h-[220px] overflow-hidden rounded-lg">
-                <Image 
-                  src="/images/lunares/eliminacion-definitiva.png" 
-                  alt="Eliminación definitiva" 
-                  width={220} 
-                  height={220} 
-                  className="object-cover w-full h-full" 
-                />
-              </div>
-              <p className="text-center w-full text-[#C5641A] font-medium mt-3">Eliminación definitiva</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="!w-[250px]">
-            <div className="flex flex-col items-center h-full">
-              <div className="w-[220px] h-[220px] overflow-hidden rounded-lg">
-                <Image 
-                  src="/images/lunares/procedimiento-preciso.png" 
-                  alt="Procedimiento seguro y preciso" 
-                  width={220} 
-                  height={220} 
-                  className="object-cover w-full h-full" 
-                />
-              </div>
-              <p className="text-center w-full text-[#C5641A] font-medium mt-3">Procedimiento seguro y preciso</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="!w-[250px]">
-            <div className="flex flex-col items-center h-full">
-              <div className="w-[220px] h-[220px] overflow-hidden rounded-lg">
-                <Image 
-                  src="/images/lunares/resultados-inmediatos.png" 
-                  alt="Resultados inmediatos" 
-                  width={220} 
-                  height={220} 
-                  className="object-cover w-full h-full" 
-                />
-              </div>
-              <p className="text-center w-full text-[#C5641A] font-medium mt-3">Resultados inmediatos</p>
-            </div>
-          </SwiperSlide>
-          </Swiper>
-        </div>        
 
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={18}
+              slidesPerView={"auto"}
+              centeredSlides
+              loop
+              speed={2800}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              className="w-full pb-6"
+            >
+              {benefits.map((benefit) => (
+                <SwiperSlide key={benefit.text} className="!w-[240px]">
+                  <BenefitCard {...benefit} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* Versión desktop: grid rodeando el título (más cerca del texto) */}
+          <div className="hidden md:grid grid-cols-3 grid-rows-[auto_1fr_auto] gap-y-2 gap-x-10 w-full justify-items-center items-center">
+            {/* Arriba izquierda / arriba derecha */}
+            <div className="col-start-1 row-start-1 flex justify-center w-full">
+              <BenefitCard {...benefits[0]} />
+            </div>
+            <div className="col-start-3 row-start-1 flex justify-center w-full">
+              <BenefitCard {...benefits[1]} />
+            </div>
+
+            {/* Título centrado */}
+            <div className="col-start-2 row-start-2 flex items-center justify-center">
+              <div className="relative flex items-center justify-center">
+                <div className="absolute w-40 h-64 md:w-48 md:h-72 bg-in-pink rounded-[999px] z-10" />
+                <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-in-playfair text-[#2c2c2c] leading-tight relative z-10">
+                  Beneficios y
+                  <br />
+                  Características
+                </h2>
+              </div>
+            </div>
+
+            {/* Abajo izquierda / abajo derecha */}
+            <div className="col-start-1 row-start-3 flex justify-center w-full">
+              <BenefitCard {...benefits[2]} />
+            </div>
+            <div className="col-start-3 row-start-3 flex justify-center w-full">
+              <BenefitCard {...benefits[3]} />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  const BenefitCard = ({ src, alt, text, focalY = 50 }: Benefit) => {
+    return (
+      <div className="relative w-full max-w-[260px] mx-auto rounded-2xl overflow-hidden shadow-sm bg-white">
+        <div className="relative aspect-[4/5] w-full">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="(max-width: 768px) 240px, 260px"
+            className="object-cover"
+            style={{ objectPosition: `50% ${focalY}%` }}
+          />
         </div>
 
-
-
-        <section className="hidden md:flex md:flex-row">
-          {/* Beneficio Superior Izquierdo */}
-          <div data-aos="fade-up-right" data-aos-delay="100" className="md:absolute top-0 left-6 lg:left-12 lg:top-6 flex flex-col items-center w-3/12">
-            <Image
-              src="/images/lunares/sin-cicatrices.png"  
-              alt="Beneficios y Características"
-              width={300}
-              height={300}
-              className="object-cover w-56 lg:w-full"
-            />
-            <div className="absolute bottom-2  w-full px-4">
-              <p className="text-center w-full text-in-brown bg-[#FFF3ED]/70 backdrop-blur-sm font-medium mt-0 rounded-xl py-1">
-                Sin cicatrices ni dolor
-              </p>
-            </div>
-            
-          </div>
-
-          {/* Beneficio Superior Derecho */}
-          <div data-aos="fade-up-left" data-aos-delay="100" className="md:absolute top-0 right-4 lg:right-12 flex flex-col items-center md:w-4/12 lg:w-96">
-            <Image
-              src="/images/lunares/eliminacion-definitiva.png" 
-              alt="Beneficios y Características"
-              width={300}
-              height={300}
-              className="object-cover w-56 md:w-full"
-            />
-            <div className="absolute bottom-2  w-full px-4">
-              <p className="text-center w-full text-in-brown bg-[#FFF3ED]/70 backdrop-blur-sm font-medium mt-0 rounded-xl py-1">
-                Eliminación definitiva
-              </p>
-            </div>
-            
-          </div>
-
-          {/* Beneficio Inferior */}
-          <div data-aos="fade-up-right" data-aos-delay="100"  className="md:absolute bottom-16 lg:bottom-8 left-1/12  lg:left-52 flex flex-col items-center w-80">
-            <Image
-              src="/images/lunares/procedimiento-preciso.png"
-              alt="Beneficios y Características"
-              width={300}
-              height={300}
-              className="object-cover w-56 md:w-full"
-            />
-            <div className="absolute bottom-2  w-full px-4">
-              <p className="text-center w-full text-in-brown bg-[#FFF3ED]/70 backdrop-blur-sm font-medium mt-0 rounded-xl py-1">
-                Procedimiento seguro y preciso
-              </p>
-            </div>
-            
-          </div>
-
-          {/* Beneficio Inferior derecho*/}
-          <div data-aos="fade-up-left" data-aos-delay="100" className="md:absolute right-0 bottom-8 md:right-28 flex flex-col items-center w-3/12">
-            <Image
-              src="/images/lunares/resultados-inmediatos.png"
-              alt="Beneficios y Características"
-              width={300}
-              height={300}
-              className="object-cover w-56 lg:w-full"
-            />
-            <div className="absolute bottom-2  w-full px-4">
-              <p className="text-center w-full text-in-brown bg-[#FFF3ED]/70 backdrop-blur-sm font-medium mt-0 rounded-xl py-1">
-                Resultados inmediatos
-              </p>
-            </div>
-            
-          </div>
-        </section>  
-
-
+        <div className="absolute inset-x-3 bottom-3">
+          <p className="text-center w-full text-in-brown bg-[#FFF3ED]/85 backdrop-blur-sm font-medium rounded-xl py-2 px-4">
+            {text}
+          </p>
+        </div>
       </div>
-    </section>
-  );
-}
+    );
+  };

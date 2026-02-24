@@ -53,7 +53,7 @@ export const SimpleForm = ({
                 <FormItem className="w-full lg:w-1/2">
                   <FormControl>
                     <Input
-                      placeholder="Nombres y Apellidos"
+                      placeholder="Nombres"
                       className="placeholder:text-in-brown py-6 border-in-brown"
                       {...field}
                     />

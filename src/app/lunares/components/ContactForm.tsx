@@ -40,7 +40,7 @@ export const ContactForm = ({
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Nombres y Apellidos" className="placeholder:text-in-brown py-6 border-in-brown" {...field} />
+                    <Input placeholder="Nombres" className="placeholder:text-in-brown py-6 border-in-brown" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

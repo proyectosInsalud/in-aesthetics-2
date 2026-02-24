@@ -49,7 +49,7 @@ export const FormInlux = ({ emailDestino, paginaOrigen = "InLuxury - Medicina Es
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Nombres y Apellidos"
+                      placeholder="Nombres"
                       className="placeholder:text-mo-brown-base rounded-lg py-6 border-mo-brown-base"
                       {...field}
                     />

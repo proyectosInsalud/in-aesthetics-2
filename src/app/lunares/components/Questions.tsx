@@ -57,7 +57,7 @@ que te indicaremos tras el procedimiento.
                 </Accordion.Item>
             </div>
             <div className="md:w-1/2 space-y-4">
-                <Accordion.Item className="bg-white shadow-lg rounded-lg w-full text-left" value="item-4">
+                <Accordion.Item className="bg-white shadow-lg rounded-lg w-full text-left" value="item-3">
                     <Accordion.Trigger className="w-full text-left flex p-4 justify-between items-center cursor-pointer">
                         <p className="font-semibold text-in-brown">¿Puedo eliminar varias imperfecciones en una sola sesión?</p>
                         <IoIosArrowDown className={`text-in-title-base transition-transform duration-300 ${openItem === "item-4" ? "rotate-180" : ""}`} />
@@ -72,7 +72,21 @@ durante tu consulta médica previa.
                         </div>
                     </Accordion.Content>
                 </Accordion.Item>
-
+                <Accordion.Item className="bg-white shadow-lg rounded-lg w-full text-left" value="item-4">
+                    <Accordion.Trigger className="w-full text-left flex p-4 justify-between items-center cursor-pointer">
+                        <p className="font-semibold text-in-brown">
+                            ¿Qué tipo de lesiones se pueden tratar?
+                        </p>
+                    <IoIosArrowDown className={`text-in-title-base transition-transform duration-300 ${openItem === "item-2" ? "rotate-180" : ""}`} />
+                    </Accordion.Trigger>
+                    <Accordion.Content className="accordion-content">
+                        <div className="px-4 pb-4">
+                            <p className="text-sm pr-4">
+                                Es ideal para verrugas virales, acrocordones (fibromas blandos), queratosis seborreicas y nevos (lunares) previamente diagnosticados como benignos.
+                            </p>
+                        </div>
+                    </Accordion.Content>
+                </Accordion.Item>
             </div>
         </div>
         </Accordion.Root>
