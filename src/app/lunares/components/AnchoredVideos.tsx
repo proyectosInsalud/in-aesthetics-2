@@ -13,53 +13,70 @@ export const AnchoredVideos = () => {
       id: 1,
       videoId: "7608212447677123852",
       user: "inluxury.estetica",
-      duration: 55000, // 45 segundos
+      duration: 55000,
     },
     {
       id: 2,
       videoId: "7607960869506452747",
       user: "inluxury.estetica",
-      duration: 71000, // 1 minuto 11 segundos
+      duration: 71000,
     },
   ]
 
+  // Cargar script de TikTok una sola vez
   useEffect(() => {
     const script = document.createElement("script")
     script.src = "https://www.tiktok.com/embed.js"
     script.async = true
     document.body.appendChild(script)
 
-    // Cleanup function
     return () => {
-        document.body.removeChild(script)
+      document.body.removeChild(script)
     }
-}, []) // <- no olvidar el array de dependencias
+  }, [])
 
+  // Función para centrar el video activo
+  const scrollToVideo = (index: number) => {
+    const container = containerRef.current
+    const videoElement = videoRefs.current[index]
+
+    if (!container || !videoElement) return
+
+    const containerWidth = container.offsetWidth
+    const videoWidth = videoElement.offsetWidth
+
+    const offset =
+      videoElement.offsetLeft - (containerWidth - videoWidth) / 2
+
+    container.scrollTo({
+      left: offset,
+      behavior: "smooth",
+    })
+  }
+
+  // Auto rotación
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
 
-    const scrollToVideo = (index: number) => {
-      const videoElement = container.children[index] as HTMLElement
-      if (videoElement) {
-        videoElement.scrollIntoView({ behavior: "smooth", inline: "start" })
-      }
-    }
-
-    // Limpiar timeout previo si cambia el video
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
     }
 
-    // Scroll al video actual
     scrollToVideo(currentIndex)
 
-    // Configurar timeout según duración real del video
     const currentVideo = dataLinks[currentIndex]
+
     timeoutRef.current = setTimeout(() => {
       const nextIndex = (currentIndex + 1) % dataLinks.length
       setCurrentIndex(nextIndex)
     }, currentVideo.duration)
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
   }, [currentIndex])
 
   return (
@@ -68,9 +85,20 @@ export const AnchoredVideos = () => {
         <h2 className="text-3xl md:text-4xl lg:text-5xl text-center text-mo-brown-base">
           Casos reales en video
         </h2>
+
         <div
           ref={containerRef}
-          className="flex gap-4 overflow-x-auto flex-nowrap justify-start scroll-smooth"
+          className="
+            flex
+            gap-6
+            overflow-x-auto
+            lg:overflow-x-visible
+            flex-nowrap
+            lg:flex-wrap
+            justify-start
+            lg:justify-center
+            scroll-smooth
+          "
         >
           {dataLinks.map((item, index) => (
             <div
