@@ -24,7 +24,7 @@ export const Benefits = () => {
                 Apoya la reducción de adiposidad localizada
               </p>
               <p>
-                mediante enzimas colabora con lipólisis y mejora de microcirculación dependiendo de cada caso clínico evaluado.
+              El tratamiento con enzimas favorece la lipólisis y contribuye a mejorar la microcirculación, según la evaluación clínica individual.
               </p>
             </div>
           </article>
@@ -41,7 +41,7 @@ export const Benefits = () => {
               />
               <div className="flex flex-col text-mo-brown-base">
                 <p className="font-semibold text-lg">Mínimamente invasivo</p>
-                <p>sin tiempo de recuperación prolongado.</p>
+                <p>Procedimiento ambulatorio, sin tiempos prolongados de recuperación.</p>
               </div>
             </article>
             <article className="w-full md:w-1/2 bg-ve-pink-bg p-6 rounded-2xl">
@@ -54,7 +54,7 @@ export const Benefits = () => {
               />
               <div className="flex flex-col text-mo-brown-base">
                 <p className="font-semibold text-lg">Resultados</p>
-                <p>visibles desde la primera sesión.</p>
+                <p>Cambios visibles desde las primeras sesiones, dependiendo de cada paciente.</p>
               </div>
             </article>
           </div>
@@ -72,7 +72,7 @@ export const Benefits = () => {
                 Procedimiento personalizado
               </p>
               <p>
-                con bajo riesgo de efectos adversos cuando se realiza tras evaluación clínica completa y bajo supervisión profesional.
+                Cambios visibles desde las primeras sesiones, dependiendo de cada paciente.
               </p>
             </div>
           </article>
