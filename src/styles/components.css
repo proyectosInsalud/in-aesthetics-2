@@ -50,6 +50,28 @@
 } 
 
 
+/* PromocionesSection — responsive CTA */
+@media (max-width: 720px) {
+  .promo-cta {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+  .promo-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .promo-copy button {
+    width: 100%;
+    max-width: 220px;
+  }
+  .promo-visual {
+    margin: 0 auto;
+  }
+}
+
 /* Degradado inluxuri hero */
 .degradado-inluxuri-hero {
   position: relative;

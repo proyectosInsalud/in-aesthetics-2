@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
   },
   alternates: {
-    canonical: 'https://inaesthetics.pe',
+    canonical: 'https://app.inaesthetics.pe',
   },
 };
 

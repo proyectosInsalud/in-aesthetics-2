@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
   // Canonical y robots
   alternates: {
-    canonical: 'https://inaesthetics.pe/hydrafacial',
+    canonical: 'https://app.inaesthetics.pe/hydrafacial',
   },
   robots: {
     index: true,

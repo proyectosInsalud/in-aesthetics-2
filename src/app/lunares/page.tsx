@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
   // Canonical y robots
   alternates: {
-    canonical: 'https://inaesthetics.pe/lunares',
+    canonical: 'https://app.inaesthetics.pe/lunares',
   },
   robots: {
     index: true,

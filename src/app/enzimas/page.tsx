@@ -18,7 +18,7 @@ export const metadata:Metadata = {
 
   // Canonical y robots
   alternates: {
-    canonical: 'https://inaesthetics.pe/enzimas',
+    canonical: 'https://app.inaesthetics.pe/enzimas',
   },
   robots: { 
     index: true,

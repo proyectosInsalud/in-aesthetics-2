@@ -1,178 +1,96 @@
 import type { Metadata } from "next";
+import { NavBar } from "./components/NavBar";
 import { HeroSection } from "./components/HeroSection";
-import { EMAIL_DESTINATIONS, PAGINA_ORIGEN } from "@/data/emails";
-import { NavInluxury } from "./components/NavInluxury";
-import { AboutServices } from "./components/AboutServices";
-import { Benefits } from "./components/Benefits";
-import { Pillars } from "./components/Pillars";
-import { CtaWhatsApp } from "./components/CtaWhatsApp";
-import { FooterInlux } from "./components/FooterInlux";
+import { ServiciosSection } from "./components/ServiciosSection";
+import { BenefitsSection } from "./components/BenefitsSection";
+import { PromocionesSection } from "./components/PromocionesSection";
+import { MarcasSection } from "./components/MarcasSection";
+import { SedeSection } from "./components/SedeSection";
+import { TestimoniosSection } from "./components/TestimoniosSection";
+import { FaqSection } from "./components/FaqSection";
+import { CtaBanner } from "./components/CtaBanner";
+import { FooterSection } from "./components/FooterSection";
 import { ButtonWsp } from "@/components/ButtonWsp";
+import { PromoPopupMount } from "./components/PromoPopupMount";
+import { getInluxuryData } from "@/queries/inluxury";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "InLuxury - Medicina Estética Avanzada y Longevidad | Inaesthetics",
-  description: "Experiencias exclusivas de medicina estética avanzada, nutrición funcional y longevidad. Tratamientos personalizados para una vida más larga y saludable en Lima, Perú.",
-  keywords: "medicina estética avanzada, longevidad, nutrición funcional, epigenética, medicina hormonal, yoga consciente, tratamientos personalizados Lima",
+  description:
+    "Experiencias exclusivas de medicina estética avanzada, nutrición funcional y longevidad. Tratamientos personalizados para una vida más larga y saludable en Lima, Perú.",
+  keywords:
+    "medicina estética avanzada, longevidad, nutrición funcional, epigenética, medicina hormonal, yoga consciente, tratamientos personalizados Lima",
   authors: [{ name: "Inaesthetics" }],
-  creator: "Inaesthetics",
-  publisher: "Inaesthetics",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: { index: true, follow: true },
   openGraph: {
-    type: 'website',
-    locale: 'es_PE',
-    url: 'https://inaesthetics.pe/inluxury',
-    title: 'InLuxury - Medicina Estética Avanzada y Longevidad',
-    description: 'Experiencias exclusivas de medicina estética avanzada, nutrición funcional y longevidad. El camino personalizado hacia una vida más larga y saludable.',
-    siteName: 'Inaesthetics',
-    images: [
-      {
-        url: '/images/banner-temporal.png',
-        width: 1200,
-        height: 630,
-        alt: 'InLuxury - Medicina Estética Avanzada',
-      },
-    ],
+    type: "website",
+    locale: "es_PE",
+    url: "https://inaesthetics.pe/inluxury",
+    title: "InLuxury - Medicina Estética Avanzada y Longevidad",
+    description:
+      "Experiencias exclusivas de medicina estética avanzada, nutrición funcional y longevidad.",
+    siteName: "Inaesthetics",
+    images: [{ url: "/images/banner-temporal.png", width: 1200, height: 630 }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'InLuxury - Medicina Estética Avanzada y Longevidad',
-    description: 'Experiencias exclusivas de medicina estética avanzada, nutrición funcional y longevidad.',
-    images: ['/images/banner-temporal.png'],
-  },
-  alternates: {
-    canonical: 'https://inaesthetics.pe/inluxury',
-  },
-  category: 'Salud y Belleza',
+  alternates: { canonical: "https://app.inaesthetics.pe/inluxury" },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
-  name: 'InLuxury - Inaesthetics',
-  description: 'Centro especializado en medicina estética avanzada, nutrición funcional y longevidad con tratamientos personalizados.',
-  url: 'https://inaesthetics.pe/inluxury',
-  logo: 'https://inaesthetics.pe/logos/logo_small.png',
-  image: 'https://inaesthetics.pe/images/banner-temporal.png',
-  telephone: '+51997621747',
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'PE',
-    addressLocality: 'Lima',
-    addressRegion: 'Lima'
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: -12.0464,
-    longitude: -77.0428
-  },
-  openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-14:00'],
-  medicalSpecialty: [
-    'Medicina Estética',
-    'Medicina Antienvejecimiento',
-    'Nutrición Funcional',
-    'Medicina Hormonal'
-  ],
-  serviceType: [
-    'Medicina Estética Avanzada',
-    'Nutrición Funcional & Longevidad',
-    'Epigenética y Medicina Predictiva',
-    'Yoga & Movimiento Consciente',
-    'Medicina Hormonal y Salud Femenina Integral',
-    'Experiencias InLuxury & Programas Combinados'
-  ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Servicios InLuxury',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Medicina Estética Avanzada',
-          description: 'Tratamientos estéticos de vanguardia con tecnología avanzada'
-        }
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Nutrición Funcional & Longevidad',
-          description: 'Planes nutricionales personalizados para una vida más larga y saludable'
-        }
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Medicina Hormonal',
-          description: 'Balance hormonal integral para salud femenina'
-        }
-      }
-    ]
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '150',
-    bestRating: '5',
-    worstRating: '1'
-  }
-};
+const WSP_MESSAGE =
+  "Hola 👋 Vi su página de medicina estética InLuxury. Quiero más información sobre sus tratamientos.";
+const WSP_PHONE = "51997621747";
 
-export default function InLuxuryPage() {
-  // Debug temporal - verificar valores de configuración
-  // console.log('📋 InLuxury Page - Configuración:', {
-  //   emailDestino: EMAIL_DESTINATIONS.inluxury,
-  //   paginaOrigen: PAGINA_ORIGEN.inluxury
-  // });
+export default async function InLuxuryPage() {
+  const inluxuryData = await getInluxuryData();
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      
-      <div className="degradado-inluxuri-hero lg:min-h-screen relative mb-12 lg:mb-16 xl:mb-20 overflow-hidden">
-        <NavInluxury />
-        <HeroSection 
-          emailDestino={EMAIL_DESTINATIONS.inluxury} 
-          paginaOrigen={PAGINA_ORIGEN.inluxury}
-        />
-      </div>
+      <div
+        className="inluxury-font"
+        style={{ fontFamily: "'Manrope', sans-serif" }}
+      >
+        <PromoPopupMount popup={inluxuryData?.popup ?? null} />
+        {/* Fixed header */}
+        <NavBar />
 
-      <div className="mb-16 lg:mb-20 xl:mb-24">
-        <AboutServices />
-      </div>
+        <main>
+          {/* Hero + Stats */}
+          <div style={{ paddingTop: 0 }}>
+            <HeroSection />
+          </div>
 
-      <div className="mb-16 lg:mb-20 xl:mb-24">
-        <Benefits />
-      </div>
+          {/* Services with tabs */}
+          <ServiciosSection />
 
-      <div className="mb-16 lg:mb-20 xl:mb-24">
-        <Pillars />
-      </div>
+          {/* Why choose InLuxury */}
+          <BenefitsSection />
 
-      <div className="mb-16 lg:mb-20 xl:mb-24">
-        <CtaWhatsApp 
-          message="Hola 👋 Vi su página de medicina estética InLuxury. Quiero más información sobre sus tratamientos."
-          phoneNumber="+51997621747"
-          buttonText="¡Agendar una cita!"
-        />
+          {/* Promotions */}
+          <PromocionesSection promotions={inluxuryData?.promotions ?? []} />
+
+          {/* Brands */}
+          <MarcasSection />
+
+          {/* Sede */}
+          <SedeSection />
+
+          {/* Testimonials */}
+          <TestimoniosSection />
+
+          {/* FAQ */}
+          <FaqSection />
+
+          {/* Bottom CTA Banner */}
+          <CtaBanner message={WSP_MESSAGE} phoneNumber={WSP_PHONE} />
+        </main>
+
+        {/* Footer */}
+        <FooterSection />
+
+        {/* Floating WhatsApp button */}
+        <ButtonWsp message={WSP_MESSAGE} phoneNumber={WSP_PHONE} />
       </div>
-      
-      <ButtonWsp message="Hola 👋 Vi su página de medicina estética InLuxury. Quiero más información sobre sus tratamientos." phoneNumber="51997621747" />
-      <FooterInlux />
     </>
   );
 }
