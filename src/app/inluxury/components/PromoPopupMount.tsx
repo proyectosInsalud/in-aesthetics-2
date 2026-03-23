@@ -27,6 +27,7 @@ export function PromoPopupMount({ popup }: Props) {
       onClose={close}
       imageSrc={popup.image}
       alt={popup.alt}
+      url={popup.url}
     />
   );
 }

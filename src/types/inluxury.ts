@@ -2,6 +2,7 @@ export interface InluxuryPopup {
   visible: boolean;
   image: string; // URL directa de la imagen
   alt: string;
+  url?: string;
 }
 
 export interface InluxuryPromotion {

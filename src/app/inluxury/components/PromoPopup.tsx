@@ -7,13 +7,19 @@ type PromoPopupProps = {
   onClose: () => void;
   imageSrc?: string;
   alt?: string;
+  url?: string;
 };
+
+function isExternalUrl(url: string) {
+  return /^https?:\/\//i.test(url);
+}
 
 export function PromoPopup({
   open,
   onClose,
   imageSrc,
   alt = "Promocion",
+  url,
 }: PromoPopupProps) {
   const src = imageSrc?.trim();
   const handleKey = useCallback(
@@ -79,17 +85,31 @@ export function PromoPopup({
         >
           x
         </button>
-        <img
-          src={src}
-          alt={alt}
-          style={{
-            display: "block",
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-          loading="lazy"
-        />
+        {url ? (
+          <a
+            href={url}
+            target={isExternalUrl(url) ? "_blank" : undefined}
+            rel={isExternalUrl(url) ? "noopener noreferrer" : undefined}
+            style={{ display: "block", textDecoration: "none", width: "100%", height: "100%" }}
+            onClick={(e) => {
+              // onClose(); // Descomentar si deseas que se cierre el popup tras clickear
+            }}
+          >
+            <img
+              src={src}
+              alt={alt}
+              style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+              loading="lazy"
+            />
+          </a>
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+            loading="lazy"
+          />
+        )}
       </div>
     </div>
   );

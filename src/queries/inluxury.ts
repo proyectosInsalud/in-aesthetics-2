@@ -5,7 +5,8 @@ const INLUXURY_FIELDS = `
     "popup": {
       "visible": popup.visible,
       "alt": popup.alt,
-      "image": popup.image.asset->url
+      "image": popup.image.asset->url,
+      "url": popup.url
     },
     "promotions": promotions[] {
       "_key": _key,
