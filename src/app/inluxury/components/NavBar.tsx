@@ -39,7 +39,7 @@ export function NavBar() {
       <nav
         className="flex items-center justify-between h-16 px-4 sm:px-6 md:px-10"
         style={{
-          background: scrolled ? "#1E1814" : "transparent",
+          background: scrolled ? "#684639" : "transparent",
           boxShadow: scrolled ? "0 8px 20px rgba(0,0,0,0.18)" : "none",
           transition: "background 180ms ease, box-shadow 180ms ease",
         }}
