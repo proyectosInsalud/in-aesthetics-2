@@ -1,7 +1,6 @@
 // Configuración centralizada de emails por servicio
 export const EMAIL_DESTINATIONS = {
   // Servicios principales
-  inluxury: "gestor.citas13@insalud.pe",
   enzimas: "Info@inaesthetics.pe", 
   hydrafacial: "Info@inaesthetics.pe",
   lunares: "Info@inaesthetics.pe",
@@ -17,7 +16,6 @@ export const EMAIL_DESTINATIONS = {
 
 // Configuración centralizada de páginas origen
 export const PAGINA_ORIGEN = {
-  inluxury: "InLuxury - Medicina Estética Avanzada (/inluxury)",
   enzimas: "Enzimas - Reducción de Grasa Localizada (/enzimas)",
   hydrafacial: "HydraFacial - Tratamiento Facial (/hydrafacial)",
   lunares: "Eliminación de Lunares - Láser CO2 (/lunares)",
