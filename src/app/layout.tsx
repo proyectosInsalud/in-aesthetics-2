@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://app.inaesthetics.pe',
   },
+  verification: {
+    google: '0xvxNQPeLuEebu5LjzOv5Nk90x8A9MdXFA3oe5nmELE',
+  },
 };
 
 export default function RootLayout({
