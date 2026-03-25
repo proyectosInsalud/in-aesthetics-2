@@ -16,6 +16,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/inluxury',
+        destination: 'https://www.inluxury.pe/',
+        permanent: true,
+      },
+      {
+        source: '/inluxury/:path*',
+        destination: 'https://www.inluxury.pe/',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;
