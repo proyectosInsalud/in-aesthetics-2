@@ -73,7 +73,7 @@ export default function Enzimas() {
       <PromoModal
          imageUrl="/images/popups/promo_enzimas.png"
          title="¡Oferta Especial en Tratamiento de Enzimas!"
-         actionUrl="https://wa.me/+51974309260?text=InAesthetics%20-%20Enzimas%0AHola%20%F0%9F%91%8B%20Vi%20su%20p%C3%A1gina%20sobre%20el%20tratamiento%20con%20enzimas%20para%20eliminar%20grasa%20localizada%20y%20estoy%20interesado.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+         actionUrl="https://wa.me/+51997621747?text=InAesthetics%20-%20Enzimas%0AHola%20%F0%9F%91%8B%20Vi%20su%20p%C3%A1gina%20sobre%20el%20tratamiento%20con%20enzimas%20para%20eliminar%20grasa%20localizada%20y%20estoy%20interesado.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
          showAfter={3000}
          showOnce={true}
          storageKey="enzimas-promo-shown"
