@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useContactForm } from "@/hooks/useContactForm";
 import { Client } from "@/types";
 import { EMAIL_DESTINATIONS, PAGINA_ORIGEN } from "@/data/emails";
+import { sendLunaresForm } from "@/services/email";
 
 interface SimpleFormProps {
   emailDestino?: string;
@@ -21,7 +22,9 @@ export const SimpleForm = ({
   emailDestino = EMAIL_DESTINATIONS.lunares, 
   paginaOrigen = PAGINA_ORIGEN.lunares 
 }: SimpleFormProps) => {
-  const { form, isLoading, onSubmit } = useContactForm();
+  const { form, isLoading, onSubmit } = useContactForm({
+    submitFn: sendLunaresForm
+  });
 
   // Función personalizada para manejar el envío con emailDestino y paginaOrigen
   const handleSubmit = (data: Client) => {

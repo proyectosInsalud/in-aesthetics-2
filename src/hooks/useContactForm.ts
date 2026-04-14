@@ -21,11 +21,13 @@ import { sendContactForm } from '@/services/email'; // Importamos el servicio
  * @param options Opciones de configuración del formulario
  * @param options.onSuccess Función a ejecutar cuando el envío es exitoso
  * @param options.defaultMessage Mensaje predeterminado para el campo mensaje
+ * @param options.submitFn Función personalizada para enviar los datos (opcional)
  * @returns Objeto con el formulario, estado de carga y función para enviar
  */
 export const useContactForm = (options?: {
   onSuccess?: () => void;
   defaultMessage?: string;
+  submitFn?: (data: Client) => Promise<any>;
 }) => {
   // Estado para controlar si el formulario está enviándose
   const [isLoading, setIsLoading] = useState(false);
@@ -53,8 +55,12 @@ export const useContactForm = (options?: {
     setIsLoading(true);
     
     try {
-      // Enviamos los datos usando el servicio centralizado
-      await sendContactForm(data);
+      // Enviamos los datos usando la función personalizada o la por defecto
+      if (options?.submitFn) {
+        await options.submitFn(data);
+      } else {
+        await sendContactForm(data);
+      }
       
       // Mostramos notificación de éxito
       toast.success("Mensaje enviado correctamente");

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { useContactForm } from "@/hooks/useContactForm"
 import { Client } from "@/types"
 import { EMAIL_DESTINATIONS, PAGINA_ORIGEN } from "@/data/emails"
+import { sendHydrafacialForm } from "@/services/email"
 
 interface HeroFormProps {
   emailDestino?: string;
@@ -17,7 +18,9 @@ export const HeroForm = ({
   paginaOrigen = PAGINA_ORIGEN.hydrafacial 
 }: HeroFormProps) => {
   // Usar el hook centralizado con mensaje predeterminado para este formulario
-  const { form, isLoading, onSubmit } = useContactForm();
+  const { form, isLoading, onSubmit } = useContactForm({
+    submitFn: sendHydrafacialForm
+  });
 
   // Función personalizada para manejar el envío con emailDestino y paginaOrigen
   const handleSubmit = (data: Client) => {

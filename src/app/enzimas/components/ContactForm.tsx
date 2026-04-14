@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { useContactForm } from "@/hooks/useContactForm"
 import { Client } from "@/types"
 import { EMAIL_DESTINATIONS, PAGINA_ORIGEN } from "@/data/emails"
+import { sendEnzimasForm } from "@/services/email"
 
 interface ContactFormProps {
   emailDestino?: string;
@@ -31,7 +32,9 @@ export const ContactForm = ({
    *   - isLoading: Estado de carga para mostrar feedback visual
    *   - onSubmit: Función para manejar el envío
    */
-  const { form, isLoading, onSubmit } = useContactForm();
+  const { form, isLoading, onSubmit } = useContactForm({
+    submitFn: sendEnzimasForm
+  });
 
   // Función personalizada para manejar el envío con emailDestino y paginaOrigen
   const handleSubmit = (data: Client) => {
