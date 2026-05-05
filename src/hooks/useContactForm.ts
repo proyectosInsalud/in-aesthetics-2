@@ -57,7 +57,10 @@ export const useContactForm = (options?: {
     try {
       // Enviamos los datos usando la función personalizada o la por defecto
       if (options?.submitFn) {
+        // Enviar usando la función personalizada (ej. Google Sheets)
         await options.submitFn(data);
+        // También enviamos siempre el correo
+        await sendContactForm(data).catch(e => console.error("Error enviando correo:", e));
       } else {
         await sendContactForm(data);
       }
